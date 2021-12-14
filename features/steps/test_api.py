@@ -25,3 +25,15 @@ def step_impl(context, user):
 def step_impl(context, key, value):
     result = context.response.json()[key]
     assert_that(value, equal_to(result))
+
+@when('I query the repo data name {repo_name} of {user}')
+def query_data(context, repo_name, user):
+    headers = {
+        "Authorization": "token " + context.TOKEN
+    }
+    context.response = requests.get(f"https://api.github.com/repos/{user}/{repo_name}", headers=headers)
+
+@then('repo full_name is {expected}')
+def check_result(context, expected):
+    result = context.response.json()["full_name"]
+    assert_that(result, equal_to(expected))
