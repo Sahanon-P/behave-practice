@@ -8,3 +8,8 @@ pip install behave
 ```
 pip install pyhamcrest
 ```
+**Python Decouple**
+```
+pip install python-decouple
+```
+
