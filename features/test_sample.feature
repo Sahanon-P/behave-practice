@@ -7,5 +7,5 @@ Feature: User-Defined Datatype as Step Parameter (tutorial10)
 
   Scenario: Calculator
     Given I have a calculator
-    When I mutiply "2" and "3"
-    Then the calculator returns "6"
+    When I mutiply 2 and 3
+    Then the calculator returns 6
