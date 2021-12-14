@@ -14,15 +14,10 @@ def step_impl(context, user):
     }
     context.response = requests.get(f"https://api.github.com/users/{user}", headers=headers)
 
-@then('the email is "{email}"')
-def step_impl(context, email):
-    result = context.response.json()['email']
-    assert_that(check_empty(email), equal_to(result))
-
-@then('the name is "{name}"')
-def step_impl(context, name):
-    result = context.response.json()['name']
-    assert_that(name, equal_to(result))
+@then('the "{key}" is "{value}"')
+def step_impl(context, key, value):
+    result = context.response.json()[key]
+    assert_that(check_empty(value), equal_to(result))
 
 def check_empty(value):
     if value == "None":

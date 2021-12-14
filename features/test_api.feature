@@ -5,8 +5,8 @@ Feature: Test get user
     '''
         Given I am an authenticated user
         When I query the user data for "<username>"
-        Then the email is "<email>"
-        And the name is "<name>"
+        Then the "email" is "<email>"
+        And the "name" is "<name>"
     Examples:
         | username       | email                | name                 |
         | fatalaijon     | fatalaijon@gmail.com | Jon Fatalai          |
